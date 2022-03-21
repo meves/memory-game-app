@@ -1,0 +1,16 @@
+.app-wrapper {
+  max-width: 90%;
+  margin: 0 auto;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: 1fr repeat(3, 2fr);
+  grid-template-areas: "header header"
+                       "card panel"
+                       "card panel"
+                       "card panel";
+  grid-gap: 0.2em;
+  padding-bottom: 1.5em;
+  background-color: rgb(231, 92, 92);  
+}
+                      

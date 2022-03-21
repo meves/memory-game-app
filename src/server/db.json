@@ -1,0 +1,103 @@
+{
+  "urls": [
+    {
+      "id": 1,
+      "url": "./icons/balloon.png"
+    },
+    {
+      "id": 2,
+      "url": "./icons/bird-house-2.png"
+    },
+    {
+      "id": 3,
+      "url": "./icons/bird-house.png"
+    },
+    {
+      "id": 4,
+      "url": "./icons/birds.png"
+    },
+    {
+      "id": 5,
+      "url": "./icons/book.png"
+    },
+    {
+      "id": 6,
+      "url": "./icons/brainstorm.png"
+    },
+    {
+      "id": 7,
+      "url": "./icons/camera.png"
+    },
+    {
+      "id": 8,
+      "url": "./icons/candy.png"
+    },
+    {
+      "id": 9,
+      "url": "./icons/cloud.png"
+    },
+    {
+      "id": 10,
+      "url": "./icons/creativity.png"
+    },
+    {
+      "id": 11,
+      "url": "./icons/drawing-tablet.png"
+    },
+    {
+      "id": 12,
+      "url": "./icons/paint-tube.png"
+    },
+    {
+      "id": 13,
+      "url": "./icons/paint.png"
+    },
+    {
+      "id": 14,
+      "url": "./icons/ring.png"
+    },
+    {
+      "id": 15,
+      "url": "./icons/think-different.png"
+    },
+    {
+      "id": 16,
+      "url": "./icons/tool.png"
+    },
+    {
+      "id": 17,
+      "url": "./icons/xoxo.png"
+    },
+    {
+      "id": 18,
+      "url": "./icons/board.png"
+    }
+  ],
+  "results": [
+    {
+      "userName": "Sergey",
+      "seconds": 5,
+      "id": 1
+    },
+    {
+      "userName": "Irina",
+      "seconds": 3,
+      "id": 2
+    },
+    {
+      "userName": "Oleg",
+      "seconds": 4,
+      "id": 3
+    },
+    {
+      "userName": "Igor",
+      "seconds": 6,
+      "id": 4
+    },
+    {
+      "userName": "Yury",
+      "seconds": 3,
+      "id": 5
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+.panel {
+    display: grid;
+    grid-area: panel;
+    grid-template-rows: repeat(3, 1fr);
+    grid-template-areas: "user"
+                         "start"
+                         "score";
+}

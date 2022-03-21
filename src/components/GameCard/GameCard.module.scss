@@ -1,0 +1,40 @@
+.gameCard {
+  grid-area: card;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: repeat(6, auto);
+  grid-gap: 0.2em;
+  padding: 1em;
+  background-color: rgb(212, 162, 22);
+
+  .card {
+      background: linear-gradient(to bottom left, blue, pink);  
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      img {
+        opacity: 0;
+        object-fit: cover;
+      }
+            
+  }
+  .card.isClicked img {
+    opacity: 1;
+  }
+  .card.isRotating {
+    animation: rotateCard 1s linear 1;
+    animation-fill-mode: forwards;
+  }
+}
+
+@keyframes rotateCard {
+  0% {
+    transform: rotateY(0deg);
+  }
+  100% {
+    transform: rotateY(180deg);
+  }
+}
+
