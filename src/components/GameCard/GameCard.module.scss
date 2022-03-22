@@ -25,19 +25,7 @@
   }
   .card.isClicked img {
     opacity: 1;
-  }
-  .card.isRotating {
-    animation: rotateCard 1s linear 1;
-    animation-fill-mode: forwards;
-  }
+  }  
 }
 
-@keyframes rotateCard {
-  0% {
-    transform: rotateY(0deg);
-  }
-  100% {
-    transform: rotateY(180deg);
-  }
-}
 

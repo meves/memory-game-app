@@ -19,13 +19,13 @@ const Score: FC<PropsType> = (props) => {
                 </div> 
                 <div className={styles.rows}>
                     {props.results && props.results.sort((a: UserResultsType, b: UserResultsType) => {
-                        return a.seconds - b.seconds})
+                        return (a.minutes*60 + a.seconds) - (b.minutes*60 + b.seconds)})
                     .slice(0, 10)
                     .map(result => (
                         <div className={styles.row} key={result.id}>
                             <div className={styles.place}>{place++}</div>
                             <div className={styles.name}>{result.userName}</div>
-                            <div className={styles.result}>{Math.floor(result.seconds/60)} m&nbsp;{result.seconds%60} s</div>
+                            <div className={styles.result}>{result.minutes} m&nbsp;{result.seconds} s</div>
                         </div>
                     ))}
                 </div>             

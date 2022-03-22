@@ -76,43 +76,31 @@
   "results": [
     {
       "userName": "Sergey",
+      "minutes": 1,
       "seconds": 5,
       "id": 1
     },
     {
-      "userName": "Oleg",
-      "seconds": 4,
+      "userName": "Irina",
+      "minutes": 2,
+      "seconds": 15,
       "id": 2
     },
     {
-      "userName": "Igor",
-      "seconds": 6,
-      "id": 3
-    },
-    {
-      "userName": "Yury",
-      "seconds": 3,
-      "id": 4
-    },
-    {
-      "userName": "Sergey",
-      "seconds": 39,
-      "id": 5
-    },
-    {
-      "userName": "Sergey",
-      "seconds": 40,
-      "id": 6
-    },
-    {
-      "userName": "шнгпг",
+      "userName": "Ekaterina",
+      "minutes": 1,
       "seconds": 25,
-      "id": 7
-    },
-    {
-      "userName": "kjbefkjbke",
-      "seconds": 35,
-      "id": 8
+      "id": 3
+    },{
+      "userName": "Oleg",
+      "minutes": 0,
+      "seconds": 55,
+      "id": 4
+    },{
+      "userName": "Yury",
+      "minutes": 3,
+      "seconds": 50,
+      "id": 5
     }
   ]
 }

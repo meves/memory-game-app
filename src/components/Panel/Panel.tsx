@@ -9,14 +9,15 @@ import { AppStateType } from "../../redux/redux-store";
 import { receiveResults } from "../../redux/selectors/panel-selectors";
 import { receiveIsGameOver } from '../../redux/selectors/gamecard-selector';
 import { UserResultsType } from "../types/types";
-import { actions } from '../../redux/gamecard-reducer';
+import { actions, getUrls } from '../../redux/gamecard-reducer';
 
 type PropsType = {
     results: Array<UserResultsType>
     isGameOver: boolean
-    saveUserResult: (userName: string, seconds: number) => void
+    saveUserResult: (userName: string,  minutes: number, seconds: number) => void
     getResults: () => void
     setGameOver: (isGameOver: boolean) => void
+    getUrls: () => void
 }
 
 type StateType = {
@@ -36,14 +37,18 @@ class Panel extends React.Component<PropsType, StateType> {
     saveUserName = (userName: string) => {
         this.setState({ userName });
     }
-    saveTime = (seconds: number) => {
-        this.props.saveUserResult(this.state.userName, seconds);
+    saveTime = (minutes: number, seconds: number) => {
+        this.props.saveUserResult(this.state.userName, minutes, seconds);
     }
     render() {
         return (
             <div className={styles.panel}>
                 <User saveUserName={this.saveUserName} userName={this.state.userName}/>
-                <Timer saveTime={this.saveTime} isGameOver={this.props.isGameOver} setGameOver={this.props.setGameOver}/>
+                <Timer saveTime={this.saveTime} 
+                       isGameOver={this.props.isGameOver} 
+                       setGameOver={this.props.setGameOver}
+                       getUrls={this.props.getUrls}
+                       />
                 <Score results={this.props.results}/>
             </div>
         )        
@@ -63,10 +68,11 @@ const mapStateToProps = (state: AppStateType): MapStatePropsType => ({
 const { setGameOver } = actions;
 
 type MapDispatchPropsType = {
-    saveUserResult: (userName: string, seconds: number) => void
+    saveUserResult: (userName: string, minutes: number, seconds: number) => void
     getResults: () => void
     setGameOver: (isGameOver: boolean) => void
+    getUrls: () => void
 }
 
 export default connect<MapStatePropsType, MapDispatchPropsType, {}, AppStateType>(
-    mapStateToProps, { saveUserResult, getResults, setGameOver })(Panel);
+    mapStateToProps, { saveUserResult, getResults, setGameOver, getUrls })(Panel);

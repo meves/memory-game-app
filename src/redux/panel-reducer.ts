@@ -35,9 +35,9 @@ const actions = {
 // thunk
 type ThunkType = ThunkAction<Promise<void>, AppStateType, unknown, Action>;
 
-export const saveUserResult = (userName: string, seconds: number): ThunkType => 
+export const saveUserResult = (userName: string, minutes: number, seconds: number): ThunkType => 
     async (dispatch) => {
-        const response = await API.postUserResult({userName, seconds});
+        const response = await API.postUserResult({userName, minutes, seconds});
         if (response.status === ResultCodes.CREATED) {
             dispatch(getResults());
         }

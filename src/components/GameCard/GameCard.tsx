@@ -45,10 +45,12 @@ const GameCard: FC<PropsType> = (props) => {
                clearTimeout(timerId);
                timerId = undefined;
                cardUrl = "";
+               target.classList.remove(styles.isClicked);
+               targetCard.classList.remove(styles.isClicked);
                targetCard = null;
-               if (props.counter < 18) {
+               if (props.counter < 1) {
                    props.setCounter(props.counter + 1);
-                } else if (props.counter === 18) {
+                } else if (props.counter === 1) {
                     props.setGameOver(true);
                 }
            }
