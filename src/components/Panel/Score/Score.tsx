@@ -10,7 +10,7 @@ const Score: FC<PropsType> = (props) => {
     let place = 1;
     return (
         <div className={styles.score}>
-            <h3 className={styles.title}>Score results table</h3>
+            <h3 className={styles.title}>Top 10 results table</h3>
             <div className={styles.table}>
                 <div className={styles.caption}>
                     <div className={styles.place}>Place</div>
@@ -19,7 +19,8 @@ const Score: FC<PropsType> = (props) => {
                 </div> 
                 <div className={styles.rows}>
                     {props.results && props.results.sort((a: UserResultsType, b: UserResultsType) => {
-                        return b.seconds - a.seconds})
+                        return a.seconds - b.seconds})
+                    .slice(0, 10)
                     .map(result => (
                         <div className={styles.row} key={result.id}>
                             <div className={styles.place}>{place++}</div>

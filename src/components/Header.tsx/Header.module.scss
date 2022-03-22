@@ -1,4 +1,9 @@
 .header {
     grid-area: header;
     text-align: center;
+    background-color: var(--bg-red-color);
+
+    h1 {
+        color: var(--white-color);
+    }
 }

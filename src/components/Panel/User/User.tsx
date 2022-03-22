@@ -11,7 +11,7 @@ const UserForm: FC<InjectedFormProps<FormDataType>>  = (props) => {
     return (
         <form onSubmit={props.handleSubmit}>
             <Field name="userName" component={Input} type="text" placeholder="enter your name"/>
-            <button>Save</button>
+            <button className="btn">Save</button>
         </form>
     )
 }   
@@ -36,7 +36,7 @@ const User: FC<PropsType> = (props) => {
                 ? <ReduxUserForm onSubmit={onSubmit}/>
                 : <div className={styles.currentUser}>
                     <div className={styles.userName}>{props.userName}</div>
-                    <button onClick={resetName}>Enter new name</button>    
+                    <button className="btn" onClick={resetName}>Enter new name</button>    
                 </div>
             }            
         </div>

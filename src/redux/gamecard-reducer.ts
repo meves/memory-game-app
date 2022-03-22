@@ -8,7 +8,9 @@ import { shuffleArray } from "../utils/shuffleArray";
 import { AppStateType, InferedActionsType } from "./redux-store";
 
 const initialState = {
-    urls: [] as Array<UrlType>
+    urls: [] as Array<UrlType>,
+    isGameOver: false,
+    counter: 1
 }
 
 type InitialStateType = typeof initialState;
@@ -22,14 +24,40 @@ const gamecardReducer = (state=initialState, action: ActionsTypes) => {
                 ...state,
                 urls: action.payload.urls
             }
+        case "REMOVE_CARDS":
+            return {
+                ...state,
+                urls: state.urls.map((url) => url.url === action.payload.url ? {id: url.id, url: "./icons/oops.png"} : url)
+            }
+        case "SET_GAME_OVER":
+            return {
+                ...state,
+                isGameOver: action.payload.isGameOver
+            }
+        case "SET_COUNTER":
+            return {
+                ...state,
+                counter: action.payload.counter
+            }
         default:
             return state;
     }
 }
 
-const actions = {
-    setUrls: (urls: Array<UrlType>) => ({ type: "SET_URLS", payload: {urls}} as const)
+export const actions = {
+    setUrls: (urls: Array<UrlType>) => ({ type: "SET_URLS", payload: {urls}} as const),
+    removeCards: (url: string) => ({
+        type: "REMOVE_CARDS", payload: { url }
+    } as const),
+    setGameOver: (isGameOver: boolean) => ({
+        type: "SET_GAME_OVER", payload: {isGameOver}
+    } as const),
+    setCounter: (counter: number) => ({
+        type: "SET_COUNTER", payload: { counter }
+    } as const)
 }
+
+export type RemoveCardsType = ReturnType<typeof actions.removeCards>;
 
 type ThunkType = ThunkAction<Promise<void>, AppStateType, unknown, Action>;
 

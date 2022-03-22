@@ -80,23 +80,23 @@
       "id": 1
     },
     {
-      "userName": "Irina",
-      "seconds": 3,
-      "id": 2
-    },
-    {
       "userName": "Oleg",
       "seconds": 4,
-      "id": 3
+      "id": 2
     },
     {
       "userName": "Igor",
       "seconds": 6,
-      "id": 4
+      "id": 3
     },
     {
       "userName": "Yury",
       "seconds": 3,
+      "id": 4
+    },
+    {
+      "userName": "Sergey",
+      "seconds": 39,
       "id": 5
     }
   ]

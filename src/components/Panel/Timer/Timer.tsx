@@ -1,8 +1,10 @@
-import React, { FC, useState } from 'react';
+import React, { FC } from 'react';
 import styles from './Timer.module.scss';
 
 type PropsType = {
+    isGameOver: boolean
     saveTime: (seconds: number) => void 
+    setGameOver: (isGameOver: boolean) => void
 }
 
 type StateType = {
@@ -18,7 +20,12 @@ class Start extends React.Component<PropsType, StateType> {
             startTimer: new Date(0,0,0),
             timer: new Date(0,0,0),
         }
-    }    
+    }   
+    componentDidUpdate(prevProps: PropsType, prevState: StateType) {
+        if (prevProps.isGameOver !== this.props.isGameOver && this.props.isGameOver) {
+            this.stopTimer()
+        }
+    } 
     reset = () => {
         this.setState({timer: new Date(0, 0, 0)});        
         clearInterval(this.timerId);
@@ -27,17 +34,17 @@ class Start extends React.Component<PropsType, StateType> {
         this.timerId = setInterval(() => {
             this.setState({timer: new Date(this.state.timer.setSeconds(this.state.timer.getSeconds()+1))});
         }, 1000);
-    }
+    }    
     stopTimer = () => {
         this.props.saveTime(this.state.timer.getSeconds() - this.state.startTimer.getSeconds());
         this.reset();
+        this.props.setGameOver(false);
     }
     render() {
         return (
             <div className={styles.timer}>
                 <time>{this.state.timer.toLocaleTimeString()}</time>
-                <button onClick={this.startTimer}>Start</button>
-                <button onClick={this.stopTimer}>Stop</button>
+                <button className="btn" onClick={this.startTimer}>Start</button>
             </div>
         )
     }

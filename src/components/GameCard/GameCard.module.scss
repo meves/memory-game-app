@@ -5,7 +5,7 @@
   grid-template-rows: repeat(6, auto);
   grid-gap: 0.2em;
   padding: 1em;
-  background-color: rgb(212, 162, 22);
+  background-color: var(--bg-blue-color);
 
   .card {
       background: linear-gradient(to bottom left, blue, pink);  
@@ -13,12 +13,15 @@
       display: flex;
       justify-content: center;
       align-items: center;
+      border: 2px solid #fff;
 
       img {
         opacity: 0;
         object-fit: cover;
       }
-            
+    }
+  .card.isClicked {
+    background: #fff;
   }
   .card.isClicked img {
     opacity: 1;

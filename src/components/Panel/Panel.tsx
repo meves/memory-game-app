@@ -7,12 +7,16 @@ import { connect } from "react-redux";
 import { saveUserResult, getResults } from '../../redux/panel-reducer';
 import { AppStateType } from "../../redux/redux-store";
 import { receiveResults } from "../../redux/selectors/panel-selectors";
+import { receiveIsGameOver } from '../../redux/selectors/gamecard-selector';
 import { UserResultsType } from "../types/types";
+import { actions } from '../../redux/gamecard-reducer';
 
 type PropsType = {
     results: Array<UserResultsType>
+    isGameOver: boolean
     saveUserResult: (userName: string, seconds: number) => void
     getResults: () => void
+    setGameOver: (isGameOver: boolean) => void
 }
 
 type StateType = {
@@ -39,7 +43,7 @@ class Panel extends React.Component<PropsType, StateType> {
         return (
             <div className={styles.panel}>
                 <User saveUserName={this.saveUserName} userName={this.state.userName}/>
-                <Timer saveTime={this.saveTime}/>
+                <Timer saveTime={this.saveTime} isGameOver={this.props.isGameOver} setGameOver={this.props.setGameOver}/>
                 <Score results={this.props.results}/>
             </div>
         )        
@@ -48,16 +52,21 @@ class Panel extends React.Component<PropsType, StateType> {
 
 type MapStatePropsType = {
     results: Array<UserResultsType>
+    isGameOver: boolean
 }
 
 const mapStateToProps = (state: AppStateType): MapStatePropsType => ({
-    results: receiveResults(state)
+    results: receiveResults(state),
+    isGameOver: receiveIsGameOver(state)
 })
+
+const { setGameOver } = actions;
 
 type MapDispatchPropsType = {
     saveUserResult: (userName: string, seconds: number) => void
     getResults: () => void
+    setGameOver: (isGameOver: boolean) => void
 }
 
 export default connect<MapStatePropsType, MapDispatchPropsType, {}, AppStateType>(
-    mapStateToProps, { saveUserResult, getResults })(Panel);
+    mapStateToProps, { saveUserResult, getResults, setGameOver })(Panel);

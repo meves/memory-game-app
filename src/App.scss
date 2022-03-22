@@ -11,6 +11,24 @@
                        "card panel";
   grid-gap: 0.2em;
   padding-bottom: 1.5em;
-  background-color: rgb(231, 92, 92);  
 }
                       
+.btn {
+  padding: 0.5em 1em;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  border-radius: 0.3em;
+  border: none;
+  transition: transform 0.3s, font-weight 0.3s;
+  transition: background-color 0.3s;
+}
+.btn:hover {
+  cursor: pointer;
+  background-color: var(--white-color);
+  transform: translateY(2px);
+  font-weight: bold;
+}
+.btn:active {
+  background-color: yellow;
+}
