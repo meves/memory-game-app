@@ -22,7 +22,7 @@ const GameCard: FC<PropsType> = (props) => {
     let cardUrl: string = "";
     let targetCard: any = null;
 
-    const handleCardClick = (id: number, url: string, isClicked: boolean, target: any) => {
+    const handleCardClick = (url: string, target: any) => {
        if (!timerId) {
            cardUrl = url; 
            targetCard = target; 

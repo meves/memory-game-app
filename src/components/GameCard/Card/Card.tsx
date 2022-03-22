@@ -4,15 +4,13 @@ import styles from '../GameCard.module.scss';
 type PropsType = {
     id: number
     url: string
-    handleCardClick: (id: number, url: string, isClicked: boolean, target: any) => void 
+    handleCardClick: (url: string, target: any) => void 
 }
 
 const Card: FC<PropsType> = (props) => {
-    let isClicked = false;
        
     const handleClick = (event: MouseEvent) => {
-        isClicked = !isClicked;
-        props.handleCardClick(props.id, props.url, isClicked, event.currentTarget);                     
+        props.handleCardClick(props.url, event.currentTarget);                     
     }
     return (
         <div className={styles.card} onClick={handleClick}>

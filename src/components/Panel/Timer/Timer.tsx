@@ -10,6 +10,7 @@ type PropsType = {
 type StateType = {
     startTimer: Date
     timer: Date
+    isEnd: boolean
 }
 
 class Start extends React.Component<PropsType, StateType> {
@@ -19,6 +20,7 @@ class Start extends React.Component<PropsType, StateType> {
         this.state = {
             startTimer: new Date(0,0,0),
             timer: new Date(0,0,0),
+            isEnd: false
         }
     }   
     componentDidUpdate(prevProps: PropsType, prevState: StateType) {
@@ -27,10 +29,10 @@ class Start extends React.Component<PropsType, StateType> {
         }
     } 
     reset = () => {
-        this.setState({timer: new Date(0, 0, 0)});        
         clearInterval(this.timerId);
     }
     startTimer = () => {
+        this.setState({timer: new Date(0, 0, 0)});        
         this.timerId = setInterval(() => {
             this.setState({timer: new Date(this.state.timer.setSeconds(this.state.timer.getSeconds()+1))});
         }, 1000);
@@ -39,13 +41,20 @@ class Start extends React.Component<PropsType, StateType> {
         this.props.saveTime(this.state.timer.getSeconds() - this.state.startTimer.getSeconds());
         this.reset();
         this.props.setGameOver(false);
+        this.setState({isEnd: true})
+    }
+    removeTitle = () => {
+        this.setState({ isEnd : false });
     }
     render() {
         return (
+            <>
+            {this.state.isEnd && <div className="gameOver" onClick={this.removeTitle}>The Game is Over</div>}
             <div className={styles.timer}>
                 <time>{this.state.timer.toLocaleTimeString()}</time>
                 <button className="btn" onClick={this.startTimer}>Start</button>
             </div>
+            </>
         )
     }
 }
