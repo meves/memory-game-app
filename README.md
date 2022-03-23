@@ -2,6 +2,11 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+json-server is used in project to make API requests  
+to install it run: 
+
+### `npm install -g json-server`
+
 ## Available Scripts
 
 ### `cd src/server/`
